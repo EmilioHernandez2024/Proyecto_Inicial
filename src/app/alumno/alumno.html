@@ -1,0 +1,18 @@
+<div class="centrar-contenido">
+<p>Fecha de nacimiento: {{ fechaNacimiento | date:'dd/MM/yyyy' }}</p>
+<p>Fecha de ingreso: {{ fechaIngreso | date:'dd/MM/yyyy' }}</p>
+<p>Fecha de egreso: {{ fechaEgreso | date:'dd/MM/yyyy' }}</p>
+<p>Nombre del alumno: {{ nombre }}</p>
+<p>Carrera del alumno: {{ carrera }}</p>
+<p>Edad del alumno: {{ edad }}</p>
+<p>Edad del alumno es mayor o menor?: {{ (edad > 17) ? "Mayor de edad" : "Menor de edad" }}</p>
+<p>Universidad: {{ universidad }}</p>
+<button (click)="universidad='UES'">Cambiar universidad</button>
+<p>Materia: {{ materia }}</p>
+
+
+Introduce tu nombre: <input type="text" #alumno (keyup)="0">
+<p>Nombre del alumno: {{ alumno.value }}</p>
+<p>Info: {{ getInfo() }}</p>
+
+</div>  
