@@ -28,6 +28,10 @@ export class Empleado {
 
     ciudadSeleccionada: string = 'Soyapango';
 
+texto_registrado= "";
+  texto_usuario_registrado="";
+  texto_registrado_property=false;
+
   // ejercicio de casa
   constructor(){}
 
