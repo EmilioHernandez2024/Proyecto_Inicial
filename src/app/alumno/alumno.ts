@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { FormsModule} from '@angular/forms';
 
 
 @Component({
   selector: 'app-alumno',
-  imports: [DatePipe,FormsModule],
+  imports: [DatePipe,FormsModule,CommonModule],
   templateUrl: './alumno.html',
   styleUrl: './alumno.css'
 })
@@ -60,5 +60,62 @@ cambiar_nombre2(event: Event){
   cambiar_empresa2(event: Event){
     this.empresa2 = (<HTMLInputElement>event.target).value;
 }
+
+colorTexto = "black";
+
+contador = 0;
+
+incrementar() {
+  this.contador++;
+}
+
+decrementar() {
+  this.contador--;
+}
+
+resetear() {
+  this.contador = 0;
+}
+
+edad2 = 0;
+
+acepta = false;
+
+enviar() {
+  alert("Formulario enviado con éxito");
+}
+
+estado = "Apagado";
+
+cambiarEstado() {
+  this.estado = this.estado === "Apagado" ? "Encendido" : "Apagado";
+}
+nombre3 = "Carlos";
+apellido3 = "Ramírez";
+edad3 = 20;
+
+empresa4 = "Google";
+
+mensajeRegistro = "No hay nadie registrado";
+
+setRegistro(event: Event) {
+  const valor = (event.target as HTMLInputElement).value;
+  if (valor === "si") {
+    this.mensajeRegistro = "Usuario registrado con éxito";
+  } else {
+    this.mensajeRegistro = "No hay nadie registrado";
+  }
+}
+
+color = "background-color: red;";
+
+cambiarColor() {
+  this.color = this.color.includes("red")
+    ? "background-color: blue;"
+    : "background-color: red;";
+}
+activo = false;
+
+
 }
 

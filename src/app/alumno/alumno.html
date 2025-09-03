@@ -48,4 +48,57 @@ Introduce empresa: <input type="text" [(ngModel)]="Nombre_empresa"><br>
 </select>
 <p>Tu ciudad seleccionada es: {{ ciudadSeleccionada }}</p>
 
+
+
+
+
+
+<label>Introduce un color: </label>
+<input type="text" [(ngModel)]="colorTexto">
+<p [style.color]="colorTexto">Este texto cambia de color</p>
+
+<p>Contador: {{ contador }}</p>
+<button (click)="incrementar()">+</button>
+<button (click)="decrementar()">-</button>
+<button (click)="resetear()">Reset</button>
+
+<p>Introduce edad: <input type="number" [(ngModel)]="edad2"></p>
+<p>{{ edad2 >= 18 ? "Acceso permitido " : "Acceso denegado " }}</p>
+
+<label>
+  <input type="checkbox" [(ngModel)]="acepta"> Acepto términos y condiciones
+</label>
+
+<p *ngIf="!acepta">Debes aceptar los términos</p>
+<button *ngIf="acepta" (click)="enviar()">Enviar</button>
+
+<p>Estado: {{ estado }}</p>
+<button (click)="cambiarEstado()">Cambiar Estado</button>
+
+<p>Nombre: {{ nombre3 }}</p>
+<p>Apellido: {{ apellido3 }}</p>
+<p>Edad: {{ edad3 }} ({{ edad3 >= 18 ? "Mayor de edad" : "Menor de edad" }})</p>
+
+<label>Introduce empresa: </label>
+<input type="text" [(ngModel)]="empresa4"><br>
+<p>Empresa: {{ empresa4 }}</p>
+
+<label>
+  <input type="radio" name="registro" value="si" (click)="setRegistro($event)"> Registrado
+</label>
+<br>
+<label>
+  <input type="radio" name="registro" value="no" (click)="setRegistro($event)"> No registrado
+</label>
+
+<p>{{ mensajeRegistro }}</p>
+
+<button [style]="color" (click)="cambiarColor()">Cambiar Color</button>
+
+<label>
+  <input type="checkbox" [(ngModel)]="activo"> Activar
+</label>
+<p>Estado: {{ activo ? "Activado" : "Desactivado" }}</p>
+
+
 </div>  
