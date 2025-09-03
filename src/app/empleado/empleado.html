@@ -1,9 +1,10 @@
+
+
 <p>Nombre del empleado: {{ nombre }}</p>
 <p>Apellido del empleado: {{ apellido }}</p>
 <p>Edad del empleado: {{ (edad > 17) ? "Mayor de edad" : "Menor de edad" }}</p>
 <!--Introduce la empresa: <input type="text" #empresa (keyup)="0" [disabled] = "habilitar_input_property">-->
 <!--<button (click)="llamar_empresa(empresa.value)">Cambiar</button>-->
-
 Introduce empresa: <input type="text" [(ngModel)]="empresa"><br>
 <p>Empresa: {{ empresa }}</p>
 
@@ -16,34 +17,22 @@ No registrado: <input type="radio" name="n_registro" value="no" (click)="set_usu
 dato: <input type="text" (input)="cambiar_desde_input($event)"><br>
 dato recolectado: {{ dato }}<br>
 
+<button [ngClass]="activeClass" (click)="lanzar_mensaje()">
+    Mostrar Mensaje
+</button><br>
 
+<!---<button [style]="color" (click)="lanzar_mensaje()">
+    Mostrar Mensaje
+</button><br>-->
 
-Empresa 2: <input type="text" (input)="cambiar_empresa2($event)"><br>
-Nombre de la empresa: {{ empresa2 }}<br>
-
-Introduce empresa: <input type="text" [(ngModel)]="Nombre_empresa"><br>
-<p>Empresa: {{ Nombre_empresa }}</p>
-
-<!--EJERCICIOS DE CASA-->
-
-<label for="nombre">Nombre:</label>
-<input type="text" id="nombres" [(ngModel)]="usuarios.nombres">
-<p>¡Hola, {{ usuarios.nombres }}!</p>
 
 <label>
-  <input type="checkbox" [(ngModel)]="aceptaTerminos">
-  Acepto los términos y condiciones.
+    <input type="checkbox" [(ngModel)]="estadoCheckbox"> Marcar/desmarcar
 </label>
-<p>Estado de la aceptación: {{ aceptaTerminos ? 'Aceptado' : 'Pendiente' }}</p>
+<p>
+    Estado del checkbox: {{ estadoCheckbox ? "Marcado": "No marcado" }}
+</p>
+<br>
+<h2>EJERCICIO DE CASA</h2>
 
-<label for="ciudad">Selecciona tu ciudad:</label>
-<select id="ciudad" [(ngModel)]="ciudadSeleccionada">
-  <option value="Ciudad Arce">Ciudad_Arce</option>
-  <option value="Soyapango">Soyapango</option>
-  <option value="San Bartolo">San_Bartolo</option>
-</select>
-<p>Tu ciudad seleccionada es: {{ ciudadSeleccionada }}</p>
-<br>
-<br>
-<br>
 <p><app-alumno></app-alumno>

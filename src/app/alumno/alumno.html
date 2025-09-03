@@ -1,18 +1,51 @@
 <div class="centrar-contenido">
 <p>Fecha de nacimiento: {{ fechaNacimiento | date:'dd/MM/yyyy' }}</p>
+
 <p>Fecha de ingreso: {{ fechaIngreso | date:'dd/MM/yyyy' }}</p>
+
 <p>Fecha de egreso: {{ fechaEgreso | date:'dd/MM/yyyy' }}</p>
+
 <p>Nombre del alumno: {{ nombre }}</p>
+
 <p>Carrera del alumno: {{ carrera }}</p>
+
 <p>Edad del alumno: {{ edad }}</p>
+
 <p>Edad del alumno es mayor o menor?: {{ (edad > 17) ? "Mayor de edad" : "Menor de edad" }}</p>
+
 <p>Universidad: {{ universidad }}</p>
-<button (click)="universidad='UES'">Cambiar universidad</button>
+<button (click)="universidad_tipo()">Cambiar universidad</button>
 <p>Materia: {{ materia }}</p>
 
 
 Introduce tu nombre: <input type="text" #alumno (keyup)="0">
 <p>Nombre del alumno: {{ alumno.value }}</p>
 <p>Info: {{ getInfo() }}</p>
+
+
+<label for="nombre">Nombre:</label>
+<input type="text" id="nombres" [(ngModel)]="usuarios.nombres">
+<p>¡Hola, {{ usuarios.nombres }}!</p>
+
+
+Empresa 2: <input type="text" (input)="cambiar_empresa2($event)"><br>
+Nombre de la empresa: {{ empresa2 }}<br>
+
+Introduce empresa: <input type="text" [(ngModel)]="Nombre_empresa"><br>
+<p>Empresa: {{ Nombre_empresa }}</p>
+
+<label>
+  <input type="checkbox" [(ngModel)]="aceptaTerminos">
+  Acepto los términos y condiciones.
+</label>
+<p>Estado de la aceptación: {{ aceptaTerminos ? 'Aceptado' : 'Pendiente' }}</p>
+
+<label for="ciudad">Selecciona tu ciudad:</label>
+<select id="ciudad" [(ngModel)]="ciudadSeleccionada">
+  <option value="Ciudad Arce">Ciudad_Arce</option>
+  <option value="Soyapango">Soyapango</option>
+  <option value="San Bartolo">San_Bartolo</option>
+</select>
+<p>Tu ciudad seleccionada es: {{ ciudadSeleccionada }}</p>
 
 </div>  

@@ -1,38 +1,30 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Alumno } from '../alumno/alumno';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-empleado',
-  imports: [FormsModule,Alumno],
+  imports: [CommonModule,FormsModule,Alumno],
   templateUrl: './empleado.html',
   styleUrl: './empleado.css'
 })
 export class Empleado {
+
+activeClass: string = 'red-button'; 
+
+
   nombre = "Juan";
   apellido = "Pérez";
   edad = 15;
   empresa = "NEVERIA";
-  empresa2 = "GOOGLE";
-  Nombre_empresa = "";
   habilitar_input_property = false;
   usuario_registrado_property = false;
   texto_registro = "No hay nadie registrado";
   dato = "";
-// ejercicio de casa
-  usuarios = {
-    nombres: 'Juan'
-  };
-    aceptaTerminos: boolean = false;
+  mensaje = "El boton es rojo";
+  estadoCheckbox : boolean = false;
 
-    ciudadSeleccionada: string = 'Soyapango';
-
-texto_registrado= "";
-  texto_usuario_registrado="";
-  texto_registrado_property=false;
-
-  // ejercicio de casa
   constructor(){}
 
   getEdad(){
@@ -79,14 +71,24 @@ texto_registrado= "";
     this.empresa = (<HTMLInputElement>event.target).value;
   }
 
-
-
-  
-cambiar_nombre2(event: Event){
-    this.dato = (event.target as HTMLInputElement).value;
+ lanzar_mensaje() {
+    if (this.activeClass === 'red-button') {
+      alert(this.mensaje);
+      this.activeClass = 'blue-button';
+      this.mensaje = "El boton es azul";
+    } else {
+      alert(this.mensaje);
+      this.activeClass = 'red-button';
+      this.mensaje = "El boton es rojo";
+    }
   }
 
-  cambiar_empresa2(event: Event){
-    this.empresa2 = (<HTMLInputElement>event.target).value;
+   // lanzar_mensaje(){
+    //this.mensaje = "Mensaje lanzado";
+   // let mensaje = "Hola";
+    //alert(this.mensaje);
+   // this.color = "background-color: blue;";
+//  }
+
   }
-}
+
