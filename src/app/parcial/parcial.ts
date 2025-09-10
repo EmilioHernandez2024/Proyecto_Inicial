@@ -126,7 +126,48 @@ nuevaTarea = '';
     clearInterval(this.intervalo);
     this.contador = 0;
   }
+
+
+  nombre2: string = "";
+  edad2: number = 0;
+  materia: string = "";
+
+  // Resultados
+  resultado: string = "";
+
+  // Estilos iniciales
+  estiloDivInicial: string = "background: lightblue; color: black; padding: 10px;";
+  estiloTextoInicial: string = "color: black; font-weight: bold;";
+
+  // Estilos dinámicos (comienzan con el valor inicial)
+  estiloDiv: string = this.estiloDivInicial;
+  estiloTexto: string = this.estiloTextoInicial;
+
+  // Método para evaluar estudiante
+  evaluar() {
+    this.resultado = this.edad2 >= 18 
+      ? "El estudiante es mayor de edad"
+      : "El estudiante es menor de edad";
+  }
+
+  // Métodos para cambiar colores
+  cambiarColorDiv(event: Event) {
+    const nuevoColor = (event.target as HTMLInputElement).value;
+    this.estiloDiv = "background: " + nuevoColor + "; color: white; padding: 10px;";
+  }
+
+  cambiarColorTexto(event: Event) {
+    const nuevoColor = (event.target as HTMLInputElement).value;
+    this.estiloTexto = "color: " + nuevoColor + "; font-weight: bold;";
+  }
+
+  restablecerColores() {
+    this.estiloDiv = this.estiloDivInicial;
+    this.estiloTexto = this.estiloTextoInicial;
+  }
 }
+
+
 
 
 

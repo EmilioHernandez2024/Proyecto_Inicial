@@ -112,4 +112,44 @@ Pendientes: {{ pendientes }}</p>
   <p *ngIf="sonido">🔊 Sonido activado</p>
 </div>
 
+<h3>Gestión de Estudiante 🎓</h3>
+
+<!-- Entradas de datos -->
+<label>Nombre:</label>
+<input type="text" [(ngModel)]="nombre2">
+<br>
+
+<label>Edad:</label>
+<input type="number" [(ngModel)]="edad2">
+<br>
+
+<label>Materia:</label>
+<input type="text" [(ngModel)]="materia">
+<br>
+
+<button (click)="evaluar()">Evaluar</button>
+<hr>
+
+<!-- Inputs de colores -->
+<label>Color del fondo:</label>
+<input type="color" (input)="cambiarColorDiv($event)">
+<br>
+
+<label>Color del texto:</label>
+<input type="color" (input)="cambiarColorTexto($event)">
+<hr>
+
+<button (click)="restablecerColores()">Restablecer colores</button>
+<hr>
+
+<!-- Zona de resultados con colores dinámicos -->
+<div [style]="estiloDiv">
+  <p [style]="estiloTexto">Nombre: {{ nombre2 }}</p>
+  <p [style]="estiloTexto">Edad: {{ edad2 }}</p>
+  <p [style]="estiloTexto">Materia: {{ materia }}</p>
+  <p [style]="estiloTexto">{{ resultado }}</p>
+</div>
+
+
+
 
