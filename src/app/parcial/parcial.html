@@ -1,0 +1,115 @@
+<h2>Gestión de Estudiante</h2>
+
+<label>Nombre: <input [(ngModel)]="nombre"></label><br>
+<label>Apellido: <input [(ngModel)]="apellido"></label><br>
+<label>Edad: <input type="number" [(ngModel)]="edad"></label><br>
+<label>Universidad: <input [(ngModel)]="universidad"></label><br>
+
+<p>¿Está inscrito?</p>
+<label><input type="radio" [(ngModel)]="inscrito" [value]="true"> Sí</label>
+<label><input type="radio" [(ngModel)]="inscrito" [value]="false"> No</label><br>
+
+<label><input type="checkbox" [(ngModel)]="becado"> ¿Becado?</label><br>
+
+<label>Color del resumen: <input type="color" [(ngModel)]="colorTexto"></label><br>
+<button (click)="restablecerColorTexto()">Restablecer</button>
+
+<hr>
+<div [style.color]="colorTexto">
+  <p>Nombre: {{nombre}} {{apellido}}</p>
+  <p> Edad: {{ edad }} {{ edad !== null ? (edad >= 18 ? 'Mayor de edad' : 'Menor de edad') : 'Sin edad' }}</p>
+  <p>Universidad: {{universidad}}</p>
+  <p>Inscrito: {{inscrito ? 'Sí' : 'No'}}</p>
+  <p>Becado: {{becado ? 'Sí' : 'No'}}</p>
+</div>
+
+
+<h2>Mini Calculadora</h2>
+
+<label>Número 1: <input type="number" [(ngModel)]="num1"></label><br>
+<label>Número 2: <input type="number" [(ngModel)]="num2"></label><br>
+
+<label>Operación:
+  <select [(ngModel)]="operacion">
+    <option value="+">Suma</option>
+    <option value="-">Resta</option>
+    <option value="*">Multiplicación</option>
+    <option value="/">División</option>
+  </select>
+</label><br>
+
+<label><input type="checkbox" [(ngModel)]="negrita"> Mostrar en negrita</label><br>
+<label>Color resultado: <input type="color" [(ngModel)]="colorResultado"></label><br>
+
+<hr>
+<p [style.color]="colorResultado" [style.font-weight]="negrita ? 'bold' : 'normal'">
+  Resultado: {{ calcular() }}
+</p>
+
+<h2>Control de Tareas</h2>
+
+<input [(ngModel)]="nuevaTarea" placeholder="Escribe una tarea">
+<button (click)="agregarTarea()">Agregar</button>
+<button (click)="eliminarTodo()">Eliminar todo</button>
+
+<label>Color completadas: <input type="color" [(ngModel)]="colorCompletadas"></label>
+
+<ul>
+  <li *ngFor="let t of tareas">
+    <input type="checkbox" [(ngModel)]="t.completada">
+    <span [style.color]="t.completada ? colorCompletadas : 'black'">
+      {{t.texto}}
+    </span>
+  </li>
+</ul>
+
+<p>Total: {{ total }} | 
+Completadas: {{ completadas }} | 
+Pendientes: {{ pendientes }}</p>
+
+
+<h2>Registro de Producto</h2>
+
+<input [(ngModel)]="nombreProd" placeholder="Nombre del producto">
+<input type="number" [(ngModel)]="precioProd" placeholder="Precio">
+<input type="color" [(ngModel)]="colorProd">
+<button (click)="agregarProducto()">Agregar</button>
+
+<br><br>
+<label>
+  <input type="radio" name="orden" [(ngModel)]="ordenAsc" [value]="true" (change)="ordenarProductos()"> Ascendente
+</label>
+<label>
+  <input type="radio" name="orden" [(ngModel)]="ordenAsc" [value]="false" (change)="ordenarProductos()"> Descendente
+</label>
+
+<table border="1">
+  <tr>
+    <th>Producto</th>
+    <th>Precio</th>
+  </tr>
+  <tr *ngFor="let p of productos">
+    <td [style.background]="p.color">{{ p.nombre }}</td>
+    <td>{{ p.precio }}</td>
+  </tr>
+</table>
+
+<p><strong>Total: {{ total2 }}</strong></p>
+
+<h2>Mini Juego</h2>
+
+<button (click)="iniciar()">Iniciar</button>
+<button (click)="pausar()">Pausar</button>
+<button (click)="finalizar()">Finalizar</button><br>
+
+<label><input type="checkbox" [(ngModel)]="sonido"> ¿Activar sonido?</label><br>
+<label>Color fondo: <input type="color" [(ngModel)]="colorFondo"></label>
+
+<hr>
+<div [style.background]="colorFondo" style="padding:10px; width:200px; text-align:center;">
+  <p>Estado: {{estado}}</p>
+  <p *ngIf="estado === 'Iniciado'">Tiempo: {{contador}} segundos</p>
+  <p *ngIf="sonido">🔊 Sonido activado</p>
+</div>
+
+

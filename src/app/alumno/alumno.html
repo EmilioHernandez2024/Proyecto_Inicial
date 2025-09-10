@@ -2,7 +2,7 @@
 <p>Fecha de nacimiento: {{ fechaNacimiento | date:'dd/MM/yyyy' }}</p>
 
 <p>Fecha de ingreso: {{ fechaIngreso | date:'dd/MM/yyyy' }}</p>
-
+ 
 <p>Fecha de egreso: {{ fechaEgreso | date:'dd/MM/yyyy' }}</p>
 
 <p>Nombre del alumno: {{ nombre }}</p>
@@ -102,3 +102,92 @@ Introduce empresa: <input type="text" [(ngModel)]="Nombre_empresa"><br>
 
 
 </div>  
+
+<h2>Ejercicios Angular 20</h2>
+
+<!-- 1. Lista dinámica de empleados -->
+<h3>1. Lista dinámica de empleados</h3>
+<input type="text" [(ngModel)]="nuevoEmpleado" placeholder="Empleado">
+<button (click)="agregarEmpleado()">Agregar</button>
+<ul>
+  <li *ngFor="let e of empleados; let i = index">
+    {{ e }} <button (click)="eliminarEmpleado(i)">X</button>
+  </li>
+</ul>
+
+<!-- 2. Mostrar/Ocultar contenido -->
+<h3>2. Mostrar/Ocultar contenido</h3>
+<button (click)="mostrarInfo = !mostrarInfo">Toggle</button>
+<p *ngIf="mostrarInfo">Este es un texto oculto 😎</p>
+
+<!-- 3. Contador -->
+<h3>3. Contador</h3>
+<p>{{ contador }}</p>
+<button (click)="incrementar2()">+</button>
+<button (click)="decrementar2()">-</button>
+<button (click)="resetContador()">Reset</button>
+
+<!-- 4. Login falso -->
+<h3>4. Login</h3>
+<input type="text" [(ngModel)]="usuario" placeholder="Usuario">
+<input type="password" [(ngModel)]="password" placeholder="Contraseña">
+<button (click)="login()">Entrar</button>
+<p>{{ loginMensaje }}</p>
+
+<!-- 5. ToDo List -->
+<h3>5. ToDo List</h3>
+<input type="text" [(ngModel)]="nuevaTarea" placeholder="Nueva tarea">
+<button (click)="agregarTarea()">Agregar</button>
+<ul>
+  <li *ngFor="let t of tareas">
+    <input type="checkbox" [(ngModel)]="t.completada"> {{ t.texto }}
+  </li>
+</ul>
+<p>Tareas pendientes: {{ tareasPendientes() }}</p>
+
+<!-- 6. Select dinámico -->
+<h3>6. Select dinámico</h3>
+<select [(ngModel)]="paisSeleccionado">
+  <option *ngFor="let p of paises">{{ p }}</option>
+</select>
+<p>Seleccionaste: {{ paisSeleccionado }}</p>
+<input type="text" [(ngModel)]="nuevoPais" placeholder="Nuevo país">
+<button (click)="agregarPais()">Agregar país</button>
+
+<!-- 7. Cambio de estilos -->
+<h3>7. Cambio de estilos</h3>
+<p [style.fontSize]="fontSize" [style.color]="colorTexto2">Texto dinámico</p>
+<button (click)="cambiarTamano()">Cambiar Tamaño</button>
+<button (click)="cambiarColorTexto()">Cambiar Color</button>
+
+<!-- 8. Tabla de productos -->
+<h3>8. Tabla de productos</h3>
+<button (click)="ordenarProductos()">Ordenar por precio</button>
+<table border="1">
+  <tr><th>Nombre</th><th>Precio</th></tr>
+  <tr *ngFor="let p of productos">
+    <td>{{ p.nombre }}</td>
+    <td>{{ p.precio }}</td>
+  </tr>
+</table>
+
+<!-- 9. Mini calculadora -->
+<h3>9. Mini calculadora</h3>
+<input type="number" [(ngModel)]="num1">
+<select [(ngModel)]="operador" (change)="calcular()">
+  <option>+</option>
+  <option>-</option>
+  <option>*</option>
+  <option>/</option>
+  <option>%</option>
+</select>
+<input type="number" [(ngModel)]="num2" (input)="calcular()">
+<p>Resultado: {{ resultado }}</p>
+
+<!-- 10. Cronómetro -->
+<h3>10. Cronómetro</h3>
+<p>{{ tiempo }} s</p>
+<button (click)="iniciarCrono()">Iniciar</button>
+<button (click)="pausarCrono()">Pausar</button>
+<button (click)="resetCrono()">Reset</button>
+

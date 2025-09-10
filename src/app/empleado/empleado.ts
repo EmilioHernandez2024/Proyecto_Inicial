@@ -2,18 +2,16 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Alumno } from '../alumno/alumno';
 import { CommonModule } from '@angular/common';
+import { Parcial } from '../parcial/parcial';
 
 @Component({
   selector: 'app-empleado',
-  imports: [CommonModule,FormsModule,Alumno],
+  imports: [CommonModule,FormsModule,Alumno,Parcial],
   templateUrl: './empleado.html',
   styleUrl: './empleado.css'
 })
 export class Empleado {
-
-activeClass: string = 'red-button'; 
-
-
+  
   nombre = "Juan";
   apellido = "Pérez";
   edad = 15;
@@ -22,8 +20,20 @@ activeClass: string = 'red-button';
   usuario_registrado_property = false;
   texto_registro = "No hay nadie registrado";
   dato = "";
-  mensaje = "El boton es rojo";
+  color = "background-color: red;";
+  mensaje = "";
   estadoCheckbox : boolean = false;
+  n1: number = 0;
+  n2: number = 0;
+  operador: string = "+";
+  resultado: number = 0;
+  color_boton = "background: blue; color: white";
+  color_div = "background: red; color: white";
+  estado_juego: string = "";
+
+color_div2: string = "background: red; color: white"; 
+color_texto: string = "color: blue"; 
+
 
   constructor(){}
 
@@ -71,24 +81,46 @@ activeClass: string = 'red-button';
     this.empresa = (<HTMLInputElement>event.target).value;
   }
 
- lanzar_mensaje() {
-    if (this.activeClass === 'red-button') {
-      alert(this.mensaje);
-      this.activeClass = 'blue-button';
-      this.mensaje = "El boton es azul";
-    } else {
-      alert(this.mensaje);
-      this.activeClass = 'red-button';
-      this.mensaje = "El boton es rojo";
+  lanzar_mensaje(){
+    this.mensaje = "Mensaje lanzado";
+    let mensaje = "Hola";
+    //alert(this.mensaje);
+    this.color = "background-color: blue;";
+  }
+
+  operar(){
+    if(this.operador != ""){
+      this.resultado = eval(this.n1 + this.operador + this.n2);
+    }else{
+      this.resultado = 0;
     }
   }
 
-   // lanzar_mensaje(){
-    //this.mensaje = "Mensaje lanzado";
-   // let mensaje = "Hola";
-    //alert(this.mensaje);
-   // this.color = "background-color: blue;";
-//  }
-
+  cambiar_color(){
+    this.color_boton = "background-color: red; color: white";
   }
+
+  restablecer_color(){
+    this.color_boton = "background-color: blue; color: white";
+  }
+
+  cambiar_estado(event: Event){
+    this.estado_juego = "El juego se ha " + (<HTMLInputElement>event.target).value;
+  }
+
+
+  cambiarColorDiv(event: Event) {
+  const color = (event.target as HTMLInputElement).value;
+  this.color_div2 = "background: " + color + "; color: white";
+}
+
+cambiarColorTexto(event: Event) {
+  const color = (event.target as HTMLInputElement).value;
+  this.color_texto = "color: " + color;
+}
+
+
+}
+
+  
 

@@ -1,5 +1,3 @@
-
-
 <p>Nombre del empleado: {{ nombre }}</p>
 <p>Apellido del empleado: {{ apellido }}</p>
 <p>Edad del empleado: {{ (edad > 17) ? "Mayor de edad" : "Menor de edad" }}</p>
@@ -7,25 +5,17 @@
 <!--<button (click)="llamar_empresa(empresa.value)">Cambiar</button>-->
 Introduce empresa: <input type="text" [(ngModel)]="empresa"><br>
 <p>Empresa: {{ empresa }}</p>
-
 <!--Registrado: <input type="checkbox" id="registro" [checked] = "usuario_registrado_property" (click)="cambiar_registro()">-->
-Registrado: <input type="radio" name="n_registro" id="n_registro" value="si" [checked]="usuario_registrado_property" (click)="set_usuario_registrado($event)"><br>
+Registrado: <input type="radio" name="n_registro" id="n_registro" value="si" [checked]="usuario_registrado_property"
+    (click)="set_usuario_registrado($event)"><br>
 No registrado: <input type="radio" name="n_registro" value="no" (click)="set_usuario_registrado($event)">
 <p>{{ texto_registro }}</p>
-
 <button (click)="presionar()">Haz click aqui</button><br>
 dato: <input type="text" (input)="cambiar_desde_input($event)"><br>
 dato recolectado: {{ dato }}<br>
-
-<button [ngClass]="activeClass" (click)="lanzar_mensaje()">
+<button [style]="color" (click)="lanzar_mensaje()">
     Mostrar Mensaje
 </button><br>
-
-<!---<button [style]="color" (click)="lanzar_mensaje()">
-    Mostrar Mensaje
-</button><br>-->
-
-
 <label>
     <input type="checkbox" [(ngModel)]="estadoCheckbox"> Marcar/desmarcar
 </label>
@@ -33,6 +23,48 @@ dato recolectado: {{ dato }}<br>
     Estado del checkbox: {{ estadoCheckbox ? "Marcado": "No marcado" }}
 </p>
 <br>
+<h5>Ejercicio 1</h5>
+<input type="number" [(ngModel)]="n1" (keyup)="operar()"><br>
+<input type="text" [(ngModel)]="operador" (keyup)="operar()"><br>
+<input type="number" [(ngModel)]="n2" (keyup)="operar()"><br>
+<p>{{resultado}}</p>
+<h5>Ejercicio 2</h5>
+<button [style]="color_boton" (click)="cambiar_color()">Cambiar</button><br>
+<button (click)="restablecer_color()">Reestablecer</button><br>
+<div [style]="color_div">
+    HOLA EMILIO
+</div><br>
+
+<h5>Ejercicio 3</h5>
+<button (click)="cambiar_estado($event)" value="iniciado">Iniciar juego</button><br>
+<button (click)="cambiar_estado($event)" value="pausado">Pausar juego</button><br>
+<button (click)="cambiar_estado($event)" value="finalizado">Finalizar juego</button><br>
+<p>{{ estado_juego }}</p>
+
+
+<h5>Ejercicio 4</h5>
+<!-- Cambiar color del DIV -->
+
+<input type="color" (input)="cambiarColorDiv($event)">
+<div [style]="color_div2">
+  DIV dinámico
+</div>
+
+<h5>Ejercicio 5</h5>
+<!-- Cambiar color del Texto -->
+<input type="color" (input)="cambiarColorTexto($event)">
+
+<p [style]="color_texto">
+  Texto dinámico 🎨
+</p>
+
+
+
+
+
+
 <h2>EJERCICIO DE CASA</h2>
 
 <p><app-alumno></app-alumno>
+</p>
+<p><app-parcial></app-parcial>
