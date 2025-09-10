@@ -151,5 +151,41 @@ Pendientes: {{ pendientes }}</p>
 </div>
 
 
+<!-- Usando Ngmodels -->
+
+<h3>Gestión de Estudiante 🎓</h3>
+
+<label>Nombre:</label>
+<input type="text" [(ngModel)]="nombre3"><br>
+
+<label>Edad:</label>
+<input type="number" [(ngModel)]="edad3"><br>
+
+<label>Materia:</label>
+<input type="text" [(ngModel)]="materia3"><br>
+
+<button (click)="evaluar2()">Evaluar</button>
+<hr>
+
+<!-- Inputs de colores con ngModel -->
+<label>Color del fondo:</label>
+<input type="color" [(ngModel)]="colorDiv2"><br>
+
+<label>Color del texto:</label>
+<input type="color" [(ngModel)]="colorTexto2"><br><br>
+
+<button (click)="restablecerColores2()">Restablecer colores</button>
+<hr>
+
+<!-- Uso directo de las variables en style -->
+<div [style.background]="colorDiv2">
+  <p [style.color]="colorTexto2">Nombre: {{ nombre3 }}</p>
+  <p [style.color]="colorTexto2">Edad: {{ edad3 }}</p>
+  <p [style.color]="colorTexto2">Materia: {{ materia3 }}</p>
+  <p [style.color]="colorTexto2">{{ resultado }}</p>
+</div>
+
+
+
 
 

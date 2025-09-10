@@ -165,6 +165,29 @@ nuevaTarea = '';
     this.estiloDiv = this.estiloDivInicial;
     this.estiloTexto = this.estiloTextoInicial;
   }
+
+
+  ///otra forma de hacer
+
+  colorDiv2: string = "#add8e6";   // lightblue
+  colorTexto2: string = "#000000"; 
+
+  // Otros datos igual que antes...
+  nombre3: string = "";
+  edad3: number = 0;
+  materia3: string = "";
+  resultado3: string = "";
+
+  evaluar2() {
+    this.resultado = this.edad3 >= 18
+      ? "El estudiante es mayor de edad"
+      : "El estudiante es menor de edad";
+  }
+
+  restablecerColores2() {
+    this.colorDiv2 = "#add8e6";
+    this.colorTexto2 = "#000000";
+  }
 }
 
 
